@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Awesome profile-cards. Create</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/3d236d467e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="./index.html" title="¡Volver al inicio!">
+        <img
+          src="./assets/images/tarjetas-molonas.svg"
+          alt="Awesome profile-cards"
+          class="imageAwesome"
+        />
+      </a>
+    </header>
+
+
+    <main class="mainCreate">
+      <section class="preview">
+        <!--Parte silver-->
+        <article>
+          <button class="card__reset js_reset" href="">
+            <i class="card__icon far fa-trash-alt"></i>Reset
+          </button>
+
+          <!--Parte blanca-->
+          <div class="palette-1 containerCard js_preview">
+            <!--Datos personales-->
+            <div class="cardInfo js_cardInfo">
+              <h2 class="cardInfo__name js_cardName">Nombre apellidos</h2>
+              <p class="cardInfo__description js_cardJob">Front-end developer</p>
+            </div>
+
+            <div class="cardImage js__profile-image"></div>
+
+            <nav>
+              <ul class="cardMenu">
+                <li class="cardMenu__icon">
+                  <a
+                    class="cardMenu__link js_cardPhone js_cardLink"
+                    href=""
+                    target="_blank"
+                    title="Número de teléfono"
+                    ><i class="icon fas fa-mobile-alt"></i>
+                  </a>
+                </li>
+                <li class="cardMenu__icon">
+                  <a
+                    class="cardMenu__link js_cardEmail js_cardLink"
+                    href=""
+                    target="_blank"
+                    title="Dirección de correo"
+                    ><i class="icon far fa-envelope"></i>
+                  </a>
+                </li>
+                <li class="cardMenu__icon">
+                  <a
+                    class="cardMenu__link js_cardLinkedin js_cardLink"
+                    href=""
+                    target="_blank"
+                    title="Perfil en LinkedIn"
+                    ><i class="icon fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+                <li class="cardMenu__icon">
+                  <a
+                    class="cardMenu__link js_cardGithub js_cardLink"
+                    href=""
+                    target="_blank"
+                    title="Perfil de GitHub"
+                    ><i class="icon fab fa-github-alt"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </article>
+      </section>
+
+
+      <form action="" class="form js_form">
+        <fieldset class="fieldset">
+          <legend
+            class="legend js_designLegend uppercase"
+            id="designLegend"
+            title="Elige los colores"
+          >
+            <i class="far fa-object-ungroup legend__icon legend__icon--orange"></i>
+            <span class="legend__text">Diseña</span>
+            <i
+              class="fas fa-angle-up legend__icon legend__icon--arrow js_arrowDesign"
+            ></i>
+          </legend>
+          <section class="containerDesign js_design">
+            <h2 class="containerDesign__title">Colores</h2>
+            <div class="containerDesign__options">
+              <div class="options__palette">
+                <input
+                  class="radio js_radio-1 js_radio"
+                  name="palette"
+                  type="radio"
+                  id="radio1"
+                  value="1"
+                  checked
+                />
+
+                <label for="radio1" class="palette__sample palette__sample--1"></label>
+
+                <label for="radio1" class="palette__sample palette__sample--2"></label>
+
+                <label for="radio1" class="palette__sample palette__sample--3"></label>
+              </div>
+
+              <div class="options__palette">
+                <input
+                  class="radio js_radio-2"
+                  name="palette"
+                  type="radio"
+                  id="radio2"
+                  value="2"
+                />
+
+                <label for="radio2" class="palette__sample palette__sample--4"></label>
+
+                <label for="radio2" class="palette__sample palette__sample--5"></label>
+
+                <label for="radio2" class="palette__sample palette__sample--6"></label>
+              </div>
+
+              <div class="options__palette">
+                <input
+                  class="radio js_radio-3"
+                  name="palette"
+                  type="radio"
+                  id="radio3"
+                  value="3"
+                />
+
+                <label for="radio3" class="palette__sample palette__sample--7"></label>
+
+                <label for="radio3" class="palette__sample palette__sample--8"></label>
+
+                <label for="radio3" class="palette__sample palette__sample--9"></label>
+              </div>
+            </div>
+          </section>
+
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend
+            class="legend js_fillLegend uppercase"
+            id="fillLegend"
+            title="Escribe tus datos"
+          >
+            <i class="far fa-keyboard legend__icon legend__icon--orange"></i>
+            <span class="legend__text">Rellena</span>
+            <i
+              class="fas fa-angle-up legend__icon legend__icon--arrow js_arrowFill rotate"
+            ></i>
+          </legend>
+          <div class="containerFill js_fill collapsed">
+            <label class="label" for="name">Nombre completo</label>
+            <input
+              class="field js_name"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="P. ej. Sally Jill"
+            />
+
+            <label class="label" for="job">Puesto</label>
+            <input
+              class="field js_job"
+              name="job"
+              type="text"
+              id="job"
+              placeholder="P. ej. Front-end unicorn"
+            />
+
+            <label class="label" for="">Imagen de perfil</label>
+            <div class="component">
+              <!--Div temporal para maquetar estos dos items-->
+              <label
+                class="component__btnAddImage js__profile-trigger"
+                type="button"
+                for="addPhoto"
+                >Añadir imagen</label
+              >
+
+              <!-- Este input es para las imagenes y tiene que estar oculto -->
+              <input
+                class="action__hiddenField js__profile-upload-btn js_photo"
+                type="file"
+                name="addPhoto"
+                id="addPhoto"
+              />
+
+              <div class="component__square js__profile-preview"></div>
+            </div>
+
+            <label class="label" for="email">E-mail</label>
+            <input
+              class="field js_email"
+              name="email"
+              type="email"
+              id="email"
+              placeholder="P. ej. sally-hill@gmail.com"
+            />
+
+            <label class="label" for="phone">Teléfono</label>
+            <input
+              class="field js_phone"
+              name="phone"
+              type="tel"
+              id="phone"
+              placeholder="P. ej. 555 55 55 55"
+            />
+
+            <label class="label" for="linkedin">LinkedIn</label>
+            <input
+              class="field js_linkedin"
+              name="linkedin"
+              type="text"
+              id="linkedin"
+              placeholder="P. ej. sally.hill"
+            />
+
+            <label class="label" for="github">GitHub</label>
+            <input
+              class="field js_github"
+              name="github"
+              type="text"
+              id="github"
+              placeholder="P. ej. sally-hill"
+            />
+          </div>
+
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend
+            class="legend js_shareLegend uppercase"
+            id="shareLegend"
+            title="¡Comparte tu tarjeta!"
+          >
+            <i class="fa-solid fa-share-nodes legend__icon legend__icon--orange"></i>
+            <span class="legend__text">Comparte</span>
+            <i
+              class="fas fa-angle-up legend__icon legend__icon--arrow js_arrowShare rotate"
+            ></i>
+          </legend>
+          <div class="containerShare js_share collapsed">
+            <button class="buttonCreateCard uppercase js_buttonCreateCard">
+              <i class="fa-regular fa-address-card buttonCreateCard__icon"></i>
+              Crear tarjeta
+            </button>
+
+            <div class="containerDone js_containerDone collapsed"></div>
+          </div>
+
+        </fieldset>
+      </form>
+
+    </main>
+
+    <footer class="footer">
+      <small class="small_text">Awesome profile-cards &copy; 2022</small>
+      <a href="https://adalab.es/" title="Visita Adalab" target="_blank"
+        ><img
+          class="img_logo"
+          src="./assets/images/logo-adalab.png"
+          alt="Logo Adalab"
+      /></a>
+    </footer>
+
+
+    <script type="text/JavaScript" src="./assets/js/main.js"></script>
+  </body>
+</html>

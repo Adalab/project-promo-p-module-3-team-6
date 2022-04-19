@@ -1,0 +1,76 @@
+<div class="containerFill js_fill collapsed">
+  <label class="label" for="name">Nombre completo</label>
+  <input
+    class="field js_name"
+    name="name"
+    type="text"
+    id="name"
+    placeholder="P. ej. Sally Jill"
+  />
+
+  <label class="label" for="job">Puesto</label>
+  <input
+    class="field js_job"
+    name="job"
+    type="text"
+    id="job"
+    placeholder="P. ej. Front-end unicorn"
+  />
+
+  <label class="label" for="">Imagen de perfil</label>
+  <div class="component">
+    <!--Div temporal para maquetar estos dos items-->
+    <label
+      class="component__btnAddImage js__profile-trigger"
+      type="button"
+      for="addPhoto"
+      >Añadir imagen</label
+    >
+
+    <!-- Este input es para las imagenes y tiene que estar oculto -->
+    <input
+      class="action__hiddenField js__profile-upload-btn js_photo"
+      type="file"
+      name="addPhoto"
+      id="addPhoto"
+    />
+
+    <div class="component__square js__profile-preview"></div>
+  </div>
+
+  <label class="label" for="email">E-mail</label>
+  <input
+    class="field js_email"
+    name="email"
+    type="email"
+    id="email"
+    placeholder="P. ej. sally-hill@gmail.com"
+  />
+
+  <label class="label" for="phone">Teléfono</label>
+  <input
+    class="field js_phone"
+    name="phone"
+    type="tel"
+    id="phone"
+    placeholder="P. ej. 555 55 55 55"
+  />
+
+  <label class="label" for="linkedin">LinkedIn</label>
+  <input
+    class="field js_linkedin"
+    name="linkedin"
+    type="text"
+    id="linkedin"
+    placeholder="P. ej. sally.hill"
+  />
+
+  <label class="label" for="github">GitHub</label>
+  <input
+    class="field js_github"
+    name="github"
+    type="text"
+    id="github"
+    placeholder="P. ej. sally-hill"
+  />
+</div>
