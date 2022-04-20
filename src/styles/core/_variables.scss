@@ -1,34 +1,49 @@
-// Fuentes
-$fontMain: "Open Sans", sans-serif;
-$fontTitle: "Montserrat", sans-serif;
-$fontSection: "Merriweather", serif;
+$merri: "Merriweather", serif;
+$montse: "Montserrat", sans-serif;
+$open: "Open Sans", sans-serif;
 
-// Colores principales
-$colorBlack: #000000;
-$colorDarkGreenBlue: #114e4e;
-$colorDirtyBlue: #438792;
-$colorHospitalGreen: #a2deaf;
-$colorLightKhaki: #f9f4dc;
-$colorWhite: #ffffff;
-$colorDullOrange: #e17334;
+$regular: 400;
+$semi-bold: 600;
+$bold: 700;
+$black: 900;
 
-// Colores sección DISEÑA
-$colorDriedBlood: #420101;
-$colorRustyRed: #bd1010;
-$colorTomato: #e95626;
-$colorSlate: #3e5b65;
-$colorFadedOrange: #eab052;
-$colorLightGreyBlue: #a0c0cf;
+// landing colors
 
-// Colores sección PREVIEW
-$colorSilver: #bfcdd0;
-$colorPaleGrey: #dde9ed;
+$dark-green-blue: #114e4e;
+$dull-orange: #e17334;
+$white-two: #ffffff;
+$white-four: #f5f5f5;
+$brownish-grey: #6b6b6b;
+$gun-metal: #54585a;
 
-// Otros colores
-$colorWhiteTwo: #d8d8d8;
-$colorWhiteThree: #d5d5d5;
-$colorWhiteFour: #f5f5f5;
-$colorAzure: #00a0f5;
-$colorBrownishGrey: #6b6b6b;
-$colorGunmetal: #54585a;
-$colorPlaceholder: #c5c5c5;
+//preview shadow
+$black-02: rgba(0, 0, 0, 0.2);
+$black-035: rgba(0, 0, 0, 0.35);
+
+//design colors
+
+$silver: #bfcdd0;
+$pale-grey: #dde9ed;
+$light-khaki: #f9f4dc;
+$dirty-blue: #438792;
+$grey-placeholder: #c5c5c5;
+
+//inputs cold
+
+$hospital-green: #a2deaf;
+
+//imputs warm
+
+$dried-blood: #420101;
+$rusty-red: #bd1010;
+$tomato: #e95626;
+
+//imputs mix
+
+$slate: #3e5b65;
+$faded-orange: #eab052;
+$light-grey-blue: #a0c0cf;
+
+//share colors
+$grey: #d5d5d5;
+$azure: #00a0f5;
