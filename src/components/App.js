@@ -1,9 +1,22 @@
 import '../styles/main.scss';
 import logoAdalab from "../images/logo-adalab.png";
 import logoAwesome from "../images/logo-awesome-profile-cards.svg";
+import { useState } from 'react';
 
 
 function App() {
+
+//FUNCIONES/EVENTOS
+ const handlerClickColapsible = () => {
+ 
+  triangle === '' ? setTriangle('colapsible'): setTriangle('');
+
+
+  const [triangle, setTriangle] = useState('');
+  }
+
+
+//HTML
   return (
     <div>
       <header>
@@ -79,7 +92,7 @@ function App() {
       <form className="form">
         {/* DESIGN */}
         <fieldset className="design-fieldset">
-          <div className="design js-design-container">
+          <div className={`"design js-design-container ${triangle}" onClick={handlerClickColapsible}`}>
             <i className="fa-regular fa-object-ungroup screens"></i>
             <p className="design__text-design">Diseña</p>
             <i className="fa-solid fa-angle-up collapsible js-arrow1"></i>
@@ -133,7 +146,7 @@ function App() {
 
         {/*STUFFED*/}
         <fieldset className="stuffed-fieldset">
-          <div className="stuffed js-stuffed-container">
+          <div className={`"stuffed js-stuffed-container ${triangle} onClick={handlerClickColapsible}"`}>
             <i className="fa-regular fa-keyboard keyboard"></i>
             <p className="stuffed__text-stuffed">Rellena</p>
             <i className="fa-solid fa-angle-up collapsible js-arrow2"></i>
@@ -218,7 +231,7 @@ function App() {
 
         {/*SHARE AND CARD*/}
         <fieldset className="design-share">
-          <div className="share-legend js-share-container">
+          <div className={`"share-legend js-share-container ${triangle}" onClick={handlerClickColapsible()}"`}>
             <i className="fa-solid fa-square-share-nodes share-legend__icon"></i>
             <p className="share-legend__text">Comparte</p>
             <i className="fa-solid fa-angle-up share-legend__arrow js-arrow3"></i>
