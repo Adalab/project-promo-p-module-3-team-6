@@ -4,13 +4,20 @@ import logoAwesome from "../images/logo-awesome-profile-cards.svg";
 import { useState } from "react";
 
 function App() {
-  const [triangle, setTriangle] = useState("");
+  const [triangleDesign, setTriangleDesign] = useState("");
+  const [triangleForm, setTriangleForm] = useState("");
+  const [triangleShare, setTriangleShare] = useState("");
 
   //FUNCIONES/EVENTOS
-  const handlerClickColapsible = () => {
-    triangle === "" ? setTriangle("hidden") : setTriangle("");
+  const handlerClickColapsibleDesign = () => {
+    triangleDesign === "" ? setTriangleDesign("hidden") : setTriangleDesign("");
   };
-
+  const handlerClickColapsibleForm = () => {
+    triangleForm === "" ? setTriangleForm("hidden") : setTriangleForm("");
+  };
+  const handlerClickColapsibleShare = () => {
+    triangleShare === "" ? setTriangleShare("hidden") : setTriangleShare("");
+  };
   //HTML
   return (
     <div>
@@ -89,19 +96,19 @@ function App() {
 
         <form className="form">
           {/*--DESIGN--*/}
-          <fieldset
-            className="design-fieldset"
-            onClick={handlerClickColapsible}
-          >
-            <div className="design js-design-container">
+          <fieldset className="design-fieldset">
+            <div
+              className="design js-design-container"
+              onClick={handlerClickColapsibleDesign}
+            >
               <i className="fa-regular fa-object-ungroup screens"></i>
               <p className="design__text-design">Diseña</p>
-              <i className="fa-solid fa-angle-up collapsible js-arrow1"></i>
+              <i className="fa-solid fa-angle-up js-arrow1"></i>
             </div>
             {/*--COLORS-*/}
             {/* PALLETE ONE */}
             <section
-              className={`"design-fieldset__design-section js-design js-reset-form  ${triangle}"`}
+              className={`"design-fieldset__design-section js-design js-reset-form  ${triangleDesign}"`}
             >
               <div className="colors__colors-box">
                 <label for="palette" className="colors">
@@ -149,18 +156,18 @@ function App() {
           </fieldset>
 
           {/*STUFFED*/}
-          <fieldset
-            className="stuffed-fieldset"
-            onClick={handlerClickColapsible}
-          >
-            <div className="stuffed js-stuffed-container">
+          <fieldset className="stuffed-fieldset">
+            <div
+              className="stuffed js-stuffed-container"
+              onClick={handlerClickColapsibleForm}
+            >
               <i className="fa-regular fa-keyboard keyboard"></i>
               <p className="stuffed__text-stuffed">Rellena</p>
               <i className="fa-solid fa-angle-up collapsible js-arrow2"></i>
             </div>
             {/*NAME*/}
             <div
-              className={`"stuffed__stuffed-form hidden js-stuffed js-stuffed-form js-reset-form ${triangle}"`}
+              className={`"stuffed__stuffed-form js-stuffed js-stuffed-form js-reset-form ${triangleForm}"`}
             >
               <label className="stuffed-titles" for="name">
                 Nombre completo
@@ -254,13 +261,16 @@ function App() {
           </fieldset>
 
           {/*SHARE AND CARD*/}
-          <fieldset className="design-share" onClick={handlerClickColapsible}>
-            <div className="share-legend js-share-container">
+          <fieldset className="design-share">
+            <div
+              className="share-legend js-share-container"
+              onClick={handlerClickColapsibleShare}
+            >
               <i className="fa-solid fa-square-share-nodes share-legend__icon"></i>
               <p className="share-legend__text">Comparte</p>
               <i className="fa-solid fa-angle-up share-legend__arrow js-arrow3"></i>
             </div>
-            <section className={`"section-share-1 js-share ${triangle}"`}>
+            <section className={`"section-share-1 js-share ${triangleShare}"`}>
               <button className="card-button js-button-share">
                 <i className="fa-solid fa-address-card card-button__icon"></i>
                 <span className="card-button__text">Crear tarjeta</span>

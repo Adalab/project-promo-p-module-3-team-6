@@ -1,9 +1,15 @@
-@import "core/reset";
-@import "core/variables";
+@import "./core/reset";
+@import "./core/variables";
+@import "./layouts/header";
+@import "./layouts/main-preview";
+@import "./layouts/main-form";
+@import "./layouts/footer";
 
-.align-landing {
-  width: 100vw;
-  height: 100vh;
+.js-profession{
+  color:red;
+}
+.hidden{
+  display:none;
 }
 
 @media all and (min-width: 768px) {
@@ -15,13 +21,3 @@
     background-image: linear-gradient(to bottom, $white-four, $white-two 9%);
   }
 }
-
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/main-landing";
-@import "layouts/main-preview";
-@import "layouts/main-form";
-
-@import "components/form-design";
-@import "components/form-stuffed";
-@import "components/form-share";
