@@ -8,7 +8,7 @@ function App() {
 
   //FUNCIONES/EVENTOS
   const handlerClickColapsible = () => {
-    triangle === "" ? setTriangle("colapsible") : setTriangle("");
+    triangle === "" ? setTriangle("hidden") : setTriangle("");
   };
 
   //HTML
@@ -88,30 +88,31 @@ function App() {
         </section>
 
         <form className="form">
-          {/* DESIGN */}
-          <fieldset className="design-fieldset">
-            <div
-              className={`"design js-design-container ${triangle}"`}
-              onClick={handlerClickColapsible}
-            >
+          {/*--DESIGN--*/}
+          <fieldset
+            className="design-fieldset"
+            onClick={handlerClickColapsible}
+          >
+            <div className="design js-design-container">
               <i className="fa-regular fa-object-ungroup screens"></i>
               <p className="design__text-design">Diseña</p>
               <i className="fa-solid fa-angle-up collapsible js-arrow1"></i>
             </div>
-            {/* COLORS */}
+            {/*--COLORS-*/}
             {/* PALLETE ONE */}
-            <section className="design-fieldset__design-section js-design js-reset-form">
+            <section
+              className={`"design-fieldset__design-section js-design js-reset-form  ${triangle}"`}
+            >
               <div className="colors__colors-box">
-                <label htmlFor="palette" className="colors">
+                <label for="palette" className="colors">
                   Colores
                 </label>
                 <input
                   className="colors__colors-input js_radio1 js_radio"
                   type="radio"
                   name="palette"
-                  id="palette1"
-                  value="palette1"
-                  checked="selected"
+                  id="1"
+                  value="1"
                 />
                 <span className="spectrum-blue1"></span>
                 <span className="spectrum-blue2"></span>
@@ -123,8 +124,8 @@ function App() {
                   className="colors__colors-input js_radio2 js_radio"
                   type="radio"
                   name="palette"
-                  id="palette2"
-                  value="palette2"
+                  id="2"
+                  value="2"
                 />
                 <span className="spectrum-warm1"></span>
                 <span className="spectrum-warm2"></span>
@@ -136,8 +137,8 @@ function App() {
                   className="colors__colors-input js_radio3 js_radio"
                   type="radio"
                   name="palette"
-                  id="palette3"
-                  value="palette3"
+                  id="3"
+                  value="3"
                 />
                 <span className="spectrum-mix1"></span>
                 <span className="spectrum-mix2"></span>
@@ -148,18 +149,20 @@ function App() {
           </fieldset>
 
           {/*STUFFED*/}
-          <fieldset className="stuffed-fieldset">
-            <div
-              className={`"design js-design-container ${triangle}"`}
-              onClick={handlerClickColapsible}
-            >
+          <fieldset
+            className="stuffed-fieldset"
+            onClick={handlerClickColapsible}
+          >
+            <div className="stuffed js-stuffed-container">
               <i className="fa-regular fa-keyboard keyboard"></i>
               <p className="stuffed__text-stuffed">Rellena</p>
               <i className="fa-solid fa-angle-up collapsible js-arrow2"></i>
             </div>
             {/*NAME*/}
-            <div className="stuffed__stuffed-form hidden js-stuffed js-stuffed-form js-reset-form">
-              <label className="stuffed-titles" htmlFor="name">
+            <div
+              className={`"stuffed__stuffed-form hidden js-stuffed js-stuffed-form js-reset-form ${triangle}"`}
+            >
+              <label className="stuffed-titles" for="name">
                 Nombre completo
               </label>
               <input
@@ -171,7 +174,7 @@ function App() {
                 required
               />
               {/*PROFESSION*/}
-              <label className="stuffed-titles" htmlFor="profession">
+              <label className="stuffed-titles" for="profession">
                 Puesto
               </label>
               <input
@@ -183,13 +186,13 @@ function App() {
                 required
               />
               {/*ADD IMAGE*/}
-              <label className="stuffed-titles" htmlFor="image">
+              <label className="stuffed-titles" for="image">
                 Imagen de perfil
               </label>
               <div className="false-stuffed">
                 <label
                   className="false-stuffed__false-button js__profile-trigger"
-                  htmlFor="image"
+                  for="image"
                 >
                   Añadir imagen
                 </label>
@@ -202,7 +205,7 @@ function App() {
                 <div className="false-stuffed__false-square js__profile-preview"></div>
               </div>
               {/*EMAIL*/}
-              <label className="stuffed-titles" htmlFor="email">
+              <label className="stuffed-titles" for="email">
                 Email
               </label>
               <input
@@ -214,7 +217,7 @@ function App() {
                 required
               />
               {/*PHONE*/}
-              <label className="stuffed-titles" htmlFor="telef">
+              <label className="stuffed-titles" for="telef">
                 Teléfono
               </label>
               <input
@@ -226,7 +229,7 @@ function App() {
                 required
               />
               {/*SOCIAL MEDIA*/}
-              <label className="stuffed-titles" htmlFor="Linkedin">
+              <label className="stuffed-titles" for="Linkedin">
                 Linkedin
               </label>
               <input
@@ -236,7 +239,7 @@ function App() {
                 id="Linkedin"
                 placeholder="Ej: PepitaPerez"
               />
-              <label className="stuffed-titles" htmlFor="GitHub">
+              <label className="stuffed-titles" for="GitHub">
                 GitHub
               </label>
               <input
@@ -251,16 +254,13 @@ function App() {
           </fieldset>
 
           {/*SHARE AND CARD*/}
-          <fieldset className="design-share">
-            <div
-              className={`"design js-design-container ${triangle}"`}
-              onClick={handlerClickColapsible}
-            >
+          <fieldset className="design-share" onClick={handlerClickColapsible}>
+            <div className="share-legend js-share-container">
               <i className="fa-solid fa-square-share-nodes share-legend__icon"></i>
               <p className="share-legend__text">Comparte</p>
               <i className="fa-solid fa-angle-up share-legend__arrow js-arrow3"></i>
             </div>
-            <section className="section-share-1 hidden js-share">
+            <section className={`"section-share-1 js-share ${triangle}"`}>
               <button className="card-button js-button-share">
                 <i className="fa-solid fa-address-card card-button__icon"></i>
                 <span className="card-button__text">Crear tarjeta</span>
@@ -277,14 +277,7 @@ function App() {
                 href=""
               ></a>
               <button className="share-newcard__button js-btn-twitter">
-                <a
-                  target="blank"
-                  className="js-link-twitter"
-                  href="https://twitter.com/intent/tweet?text=Aquí%20tienes%20las%20tarjetas%20del%20equipo%20cinco%20"
-                >
-                  <i className="fa-brands fa-twitter"></i>
-                  <span>Compartir en twitter</span>
-                </a>
+                <a className="link-twitter"></a>
               </button>
               <span className="section-share__line"></span>
             </section>
