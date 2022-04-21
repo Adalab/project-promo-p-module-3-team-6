@@ -7,7 +7,15 @@ function App() {
   const [triangleDesign, setTriangleDesign] = useState("");
   const [triangleForm, setTriangleForm] = useState("");
   const [triangleShare, setTriangleShare] = useState("");
-
+  const [dataCard, setDataCard] = useState({
+    palette: "1",
+    name: "",
+    job: "",
+    email: "",
+    phone: "",
+    linkedin: "",
+    github: "",
+  });
   //FUNCIONES/EVENTOS
   const handlerClickColapsibleDesign = () => {
     triangleDesign === "" ? setTriangleDesign("hidden") : setTriangleDesign("");
@@ -17,6 +25,26 @@ function App() {
   };
   const handlerClickColapsibleShare = () => {
     triangleShare === "" ? setTriangleShare("hidden") : setTriangleShare("");
+  };
+  const handleReset = (ev) => {
+    ev.preventDefault();
+    setDataCard({
+      palette: "1",
+      name: "",
+      job: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
+    });
+  };
+  const handleInput = (ev) => {
+    const inputValue = ev.target.value;
+    const inputChanged = ev.target.name;
+    setDataCard({
+      ...dataCard,
+      [inputChanged]: inputValue,
+    });
   };
   //HTML
   return (
@@ -32,17 +60,17 @@ function App() {
       <main className="align-design">
         <section className="preview-section">
           <div className="preview-section__aliner-div">
-            <button className="reset-button js-reset">
+            <button className="reset-button js-reset" onClick={handleReset}>
               <i className="fa-regular fa-trash-can reset-button__trash"></i>
               <span className="reset-button__text">Reset</span>
             </button>
             <article className="preview-card js_preview">
               <div className="preview-card__div rectangle">
                 <h3 className="preview-card__div--name name js-name js_reset-title">
-                  Nombre Apellido
+                  {dataCard.name || "Nombre Apellido"}
                 </h3>
                 <p className="preview-card__div--profession profession js-profession js_reset-subtitle">
-                  Front-end developer
+                  {dataCard.job || "Front-end developer"}
                 </p>
               </div>
               <div className="preview-card__image js__profile-image"></div>
@@ -51,7 +79,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href=""
+                      href={`tel:${dataCard.phone || ""}`}
                       className="card-list__item--link icon-palette js-phone js_reset-telf"
                       title="Teléfono"
                     >
@@ -61,7 +89,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href=""
+                      href={`mailto:${dataCard.email || ""}`}
                       className="card-list__item--link icon-palette js-email js_reset-send"
                       title="Correo electrónico"
                     >
@@ -71,7 +99,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href=""
+                      href={dataCard.linkedin || ""}
                       className="card-list__item--link icon-palette js-linkedin js_reset-lknd"
                       title="Perfil de Linkedin"
                     >
@@ -81,7 +109,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href=""
+                      href={dataCard.github || ""}
                       className="card-list__item--link icon-palette js-git js_reset-github"
                       title="Perfil de GitHub"
                     >
@@ -108,10 +136,10 @@ function App() {
             {/*--COLORS-*/}
             {/* PALLETE ONE */}
             <section
-              className={`"design-fieldset__design-section js-design js-reset-form  ${triangleDesign}"`}
+              className={`design-fieldset__design-section js-design js-reset-form  ${triangleDesign}`}
             >
               <div className="colors__colors-box">
-                <label for="palette" className="colors">
+                <label htmlFor="palette" className="colors">
                   Colores
                 </label>
                 <input
@@ -120,6 +148,8 @@ function App() {
                   name="palette"
                   id="1"
                   value="1"
+                  checked={dataCard.palette === "1"}
+                  onChange={handleInput}
                 />
                 <span className="spectrum-blue1"></span>
                 <span className="spectrum-blue2"></span>
@@ -133,6 +163,8 @@ function App() {
                   name="palette"
                   id="2"
                   value="2"
+                  checked={dataCard.palette === "2"}
+                  onChange={handleInput}
                 />
                 <span className="spectrum-warm1"></span>
                 <span className="spectrum-warm2"></span>
@@ -146,6 +178,8 @@ function App() {
                   name="palette"
                   id="3"
                   value="3"
+                  checked={dataCard.palette === "3"}
+                  onChange={handleInput}
                 />
                 <span className="spectrum-mix1"></span>
                 <span className="spectrum-mix2"></span>
@@ -167,9 +201,9 @@ function App() {
             </div>
             {/*NAME*/}
             <div
-              className={`"stuffed__stuffed-form js-stuffed js-stuffed-form js-reset-form ${triangleForm}"`}
+              className={`stuffed__stuffed-form js-stuffed js-stuffed-form js-reset-form ${triangleForm}`}
             >
-              <label className="stuffed-titles" for="name">
+              <label className="stuffed-titles" htmlFor="name">
                 Nombre completo
               </label>
               <input
@@ -179,27 +213,31 @@ function App() {
                 name="name"
                 placeholder="Ej: Pepita Pérez"
                 required
+                value={dataCard.name}
+                onChange={handleInput}
               />
               {/*PROFESSION*/}
-              <label className="stuffed-titles" for="profession">
+              <label className="stuffed-titles" htmlFor="job">
                 Puesto
               </label>
               <input
                 className="stuffed-titles__stuffed-texts js-forjob js_reset-job"
-                id="profession"
+                id="job"
                 type="text"
-                name="profession"
+                name="job"
                 placeholder="Ej: Front-end developer"
                 required
+                value={dataCard.job}
+                onChange={handleInput}
               />
               {/*ADD IMAGE*/}
-              <label className="stuffed-titles" for="image">
+              <label className="stuffed-titles" htmlFor="image">
                 Imagen de perfil
               </label>
               <div className="false-stuffed">
                 <label
                   className="false-stuffed__false-button js__profile-trigger"
-                  for="image"
+                  htmlFor="image"
                 >
                   Añadir imagen
                 </label>
@@ -212,7 +250,7 @@ function App() {
                 <div className="false-stuffed__false-square js__profile-preview"></div>
               </div>
               {/*EMAIL*/}
-              <label className="stuffed-titles" for="email">
+              <label className="stuffed-titles" htmlFor="email">
                 Email
               </label>
               <input
@@ -222,9 +260,11 @@ function App() {
                 name="email"
                 placeholder="Ej: pepita.perez@gmail.com"
                 required
+                value={dataCard.email}
+                onChange={handleInput}
               />
               {/*PHONE*/}
-              <label className="stuffed-titles" for="telef">
+              <label className="stuffed-titles" htmlFor="telef">
                 Teléfono
               </label>
               <input
@@ -234,27 +274,33 @@ function App() {
                 name="phone"
                 placeholder="Ej: 000-000-000"
                 required
+                value={dataCard.phone}
+                onChange={handleInput}
               />
               {/*SOCIAL MEDIA*/}
-              <label className="stuffed-titles" for="Linkedin">
+              <label className="stuffed-titles" htmlFor="linkedin">
                 Linkedin
               </label>
               <input
                 className="stuffed-titles__stuffed-texts js-forlkdn js_reset-linkedin"
                 type="text"
-                name="Linkedin"
-                id="Linkedin"
-                placeholder="Ej: PepitaPerez"
+                name="linkedin"
+                id="linkedin"
+                placeholder="url completa de tu perfil"
+                value={dataCard.linkedin}
+                onChange={handleInput}
               />
-              <label className="stuffed-titles" for="GitHub">
+              <label className="stuffed-titles" htmlFor="github">
                 GitHub
               </label>
               <input
                 className="stuffed-titles__stuffed-texts js-forgit js_reset-git"
                 type="text"
-                name="GitHub"
-                id="GitHub"
-                placeholder="Ej: PepiPerez"
+                name="github"
+                id="github"
+                placeholder="url completa de tu perfil"
+                value={dataCard.github}
+                onChange={handleInput}
               />
               <span className="cutting-line2"></span>
             </div>
@@ -270,7 +316,7 @@ function App() {
               <p className="share-legend__text">Comparte</p>
               <i className="fa-solid fa-angle-up share-legend__arrow js-arrow3"></i>
             </div>
-            <section className={`"section-share-1 js-share ${triangleShare}"`}>
+            <section className={`section-share-1 js-share ${triangleShare}`}>
               <button className="card-button js-button-share">
                 <i className="fa-solid fa-address-card card-button__icon"></i>
                 <span className="card-button__text">Crear tarjeta</span>
