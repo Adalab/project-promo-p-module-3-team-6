@@ -1,47 +1,57 @@
-import "../styles/main.scss";
-import logoAdalab from "../images/logo-adalab.png";
-import logoAwesome from "../images/logo-awesome-profile-cards.svg";
-import { useState } from "react";
+import '../styles/main.scss';
+import logoAdalab from '../images/logo-adalab.png';
+import logoAwesome from '../images/logo-awesome-profile-cards.svg';
+import { useState } from 'react';
 
 function App() {
-  const [triangleDesign, setTriangleDesign] = useState("");
-  const [triangleForm, setTriangleForm] = useState("");
-  const [triangleShare, setTriangleShare] = useState("");
-  const [arrowDesign, setArrowDesign] = useState("");
-  const [arrowForm, setArrowForm] = useState("");
-  const [arrowShare, setArrowShare] = useState("");
+  const [triangleDesign, setTriangleDesign] = useState('');
+  const [triangleForm, setTriangleForm] = useState('');
+  const [triangleShare, setTriangleShare] = useState('');
+  const [arrowDesign, setArrowDesign] = useState('');
+  const [arrowForm, setArrowForm] = useState('');
+  const [arrowShare, setArrowShare] = useState('');
   const [dataCard, setDataCard] = useState({
-    palette: "1",
-    name: "",
-    job: "",
-    email: "",
-    phone: "",
-    linkedin: "",
-    github: "",
+    palette: '1',
+    name: '',
+    job: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
   });
   //FUNCIONES/EVENTOS
   const handlerClickColapsibleDesign = () => {
-    triangleDesign === "" ? setTriangleDesign("hidden") : setTriangleDesign("");
-    arrowDesign === "" ? setArrowDesign("collapsible") : setArrowDesign("");
+    triangleDesign === '' ? setTriangleDesign('hidden') : setTriangleDesign('');
+    arrowDesign === '' ? setArrowDesign('collapsible') : setArrowDesign('');
+    if (triangleDesign === '') {
+      setTriangleShare === 'hidden' && setTriangleForm === 'hidden';
+    }
   };
+
   const handlerClickColapsibleForm = () => {
-    triangleForm === "" ? setTriangleForm("hidden") : setTriangleForm("");
-    arrowForm === "" ? setArrowForm("collapsible") : setArrowForm("");
+    triangleForm === '' ? setTriangleForm('hidden') : setTriangleForm('');
+    arrowForm === '' ? setArrowForm('collapsible') : setArrowForm('');
+    if (triangleForm !== 'hidden') {
+      triangleShare === 'hidden' && triangleDesign === 'hidden';
+    }
   };
   const handlerClickColapsibleShare = () => {
-    triangleShare === "" ? setTriangleShare("hidden") : setTriangleShare("");
-    arrowShare === "" ? setArrowShare("collapsible") : setArrowShare("");
+    triangleShare === '' ? setTriangleShare('hidden') : setTriangleShare('');
+    arrowShare === '' ? setArrowShare('collapsible') : setArrowShare('');
+    if (triangleShare !== 'hidden') {
+      triangleForm === 'hidden' && triangleDesign === 'hidden';
+    }
   };
   const handleReset = (ev) => {
     ev.preventDefault();
     setDataCard({
-      palette: "1",
-      name: "",
-      job: "",
-      email: "",
-      phone: "",
-      linkedin: "",
-      github: "",
+      palette: '1',
+      name: '',
+      job: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
     });
   };
   const handleInput = (ev) => {
@@ -73,10 +83,10 @@ function App() {
             <article className="preview-card js_preview">
               <div className="preview-card__div rectangle">
                 <h3 className="preview-card__div--name name js-name js_reset-title">
-                  {dataCard.name || "Nombre Apellido"}
+                  {dataCard.name || 'Nombre Apellido'}
                 </h3>
                 <p className="preview-card__div--profession profession js-profession js_reset-subtitle">
-                  {dataCard.job || "Front-end developer"}
+                  {dataCard.job || 'Front-end developer'}
                 </p>
               </div>
               <div className="preview-card__image js__profile-image"></div>
@@ -85,7 +95,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={`tel:${dataCard.phone || ""}`}
+                      href={`tel:${dataCard.phone || ''}`}
                       className="card-list__item--link icon-palette js-phone js_reset-telf"
                       title="Teléfono"
                     >
@@ -95,7 +105,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={`mailto:${dataCard.email || ""}`}
+                      href={`mailto:${dataCard.email || ''}`}
                       className="card-list__item--link icon-palette js-email js_reset-send"
                       title="Correo electrónico"
                     >
@@ -105,7 +115,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={dataCard.linkedin || ""}
+                      href={dataCard.linkedin || ''}
                       className="card-list__item--link icon-palette js-linkedin js_reset-lknd"
                       title="Perfil de Linkedin"
                     >
@@ -115,7 +125,7 @@ function App() {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={dataCard.github || ""}
+                      href={dataCard.github || ''}
                       className="card-list__item--link icon-palette js-git js_reset-github"
                       title="Perfil de GitHub"
                     >
@@ -156,7 +166,7 @@ function App() {
                   name="palette"
                   id="1"
                   value="1"
-                  checked={dataCard.palette === "1"}
+                  checked={dataCard.palette === '1'}
                   onChange={handleInput}
                 />
                 <span className="spectrum-blue1"></span>
@@ -171,7 +181,7 @@ function App() {
                   name="palette"
                   id="2"
                   value="2"
-                  checked={dataCard.palette === "2"}
+                  checked={dataCard.palette === '2'}
                   onChange={handleInput}
                 />
                 <span className="spectrum-warm1"></span>
@@ -186,7 +196,7 @@ function App() {
                   name="palette"
                   id="3"
                   value="3"
-                  checked={dataCard.palette === "3"}
+                  checked={dataCard.palette === '3'}
                   onChange={handleInput}
                 />
                 <span className="spectrum-mix1"></span>
