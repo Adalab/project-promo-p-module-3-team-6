@@ -21,6 +21,7 @@ function App() {
   });
   //FUNCIONES/EVENTOS
   const handlerClickColapsibleDesign = () => {
+   
     triangleDesign === '' ? setTriangleDesign('hidden') : setTriangleDesign('');
     arrowDesign === '' ? setArrowDesign('collapsible') : setArrowDesign('');
     if (triangleDesign === '') {
@@ -31,15 +32,15 @@ function App() {
   const handlerClickColapsibleForm = () => {
     triangleForm === '' ? setTriangleForm('hidden') : setTriangleForm('');
     arrowForm === '' ? setArrowForm('collapsible') : setArrowForm('');
-    if (triangleForm !== 'hidden') {
-      triangleShare  ('hidden') && triangleDesign ('hidden');
+    if (triangleForm === '') {
+      setTriangleShare  ('hidden') && setTriangleDesign ('hidden');
     }
   };
   const handlerClickColapsibleShare = () => {
     triangleShare === '' ? setTriangleShare('hidden') : setTriangleShare('');
     arrowShare === '' ? setArrowShare('collapsible') : setArrowShare('');
-    if (triangleShare !== 'hidden') {
-      triangleForm ('hidden') && triangleDesign ('hidden');
+    if (triangleShare === '') {
+      setTriangleForm ('hidden') && setTriangleDesign ('hidden');
     }
   };
   const handleReset = (ev) => {
