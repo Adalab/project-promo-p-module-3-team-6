@@ -1,7 +1,11 @@
 import '../styles/main.scss';
-import logoAdalab from '../images/logo-adalab.png';
-import logoAwesome from '../images/logo-awesome-profile-cards.svg';
-import { useState } from 'react';
+//import logoAdalab from '../images/logo-adalab.png';
+//import logoAwesome from '../images/logo-awesome-profile-cards.svg';
+import { useEffect, useState } from 'react';
+import localStorage from '../services/localStorage';
+import dataApi from '../services/Api';
+import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   const [triangleDesign, setTriangleDesign] = useState('');
@@ -19,13 +23,24 @@ function App() {
     linkedin: '',
     github: '',
   });
+  const [apiData, setApiData] = useState({});
+  const [cards, setCards] = useState(localStorage.get('cards', []));
+
+  useEffect(() => {
+    if (cards.length === 0) {
+      dataApi().then((data) => {
+        localStorage.set('cards', data);
+        setCards(data);
+      });
+    }
+  }, []);
+
   //FUNCIONES/EVENTOS
   const handlerClickColapsibleDesign = () => {
-   
     triangleDesign === '' ? setTriangleDesign('hidden') : setTriangleDesign('');
     arrowDesign === '' ? setArrowDesign('collapsible') : setArrowDesign('');
     if (triangleDesign === '') {
-      setTriangleShare ('hidden') && setTriangleForm  ('hidden');
+      setTriangleShare('hidden') && setTriangleForm('hidden');
     }
   };
 
@@ -33,16 +48,17 @@ function App() {
     triangleForm === '' ? setTriangleForm('hidden') : setTriangleForm('');
     arrowForm === '' ? setArrowForm('collapsible') : setArrowForm('');
     if (triangleForm === '') {
-      setTriangleShare  ('hidden') && setTriangleDesign ('hidden');
+      setTriangleShare('hidden') && setTriangleDesign('hidden');
     }
   };
   const handlerClickColapsibleShare = () => {
     triangleShare === '' ? setTriangleShare('hidden') : setTriangleShare('');
     arrowShare === '' ? setArrowShare('collapsible') : setArrowShare('');
     if (triangleShare === '') {
-      setTriangleForm ('hidden') && setTriangleDesign ('hidden');
+      setTriangleForm('hidden') && setTriangleDesign('hidden');
     }
   };
+
   const handleReset = (ev) => {
     ev.preventDefault();
     setDataCard({
@@ -54,7 +70,13 @@ function App() {
       linkedin: '',
       github: '',
     });
+    //clear();
+    // Función que limpia todo el local storage
+    const clear = () => {
+      localStorage.clear();
+    };
   };
+
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
     const inputChanged = ev.target.name;
@@ -63,17 +85,19 @@ function App() {
       [inputChanged]: inputValue,
     });
   };
+
+  //manejadora botón crear
+  const handleClickCreateCard = (ev) => {
+    ev.preventDefault();
+    dataApi(dataCard).then((info) => {
+      setApiData(info);
+    });
+  };
+
   //HTML
   return (
     <div>
-      <header>
-        <img
-          className="logohead"
-          src={logoAwesome}
-          alt="Logo de la aplicación"
-        />
-      </header>
-
+      <Header />
       <main className="align-design">
         <section className="preview-section">
           <div className="preview-section__aliner-div">
@@ -334,25 +358,28 @@ function App() {
               <i className="fa-solid fa-square-share-nodes share-legend__icon"></i>
               <p className="share-legend__text">Comparte</p>
               <i
-                className={`fa-solid fa-angle-up share-legend__arrow js-arrow3 ${arrowShare}`}
+                className={`fa-solid fa-angle-down js-arrow3 ${arrowShare}`}
               ></i>
             </div>
             <section className={`section-share-1 js-share ${triangleShare}`}>
-              <button className="card-button js-button-share">
+              {/*componente crear tarjeta*/}
+              <button
+                className="card-button js-button-share"
+                onClick={handleClickCreateCard}
+              >
                 <i className="fa-solid fa-address-card card-button__icon"></i>
                 <span className="card-button__text">Crear tarjeta</span>
               </button>
+
               <span className="section-share__line"></span>
             </section>
             <section className="share-newcard card-hidden js-section-link">
               <h3 className="share-newcard__text js-false">
                 La tarjeta ha sido creada:
               </h3>
-              <a
-                target="blank"
-                className="share-newcard__link js-true"
-                href=""
-              ></a>
+              <a target="blank" className="share-newcard__link js-true" href="">
+                {apiData.cardUrl || 'url'}
+              </a>
               <button className="share-newcard__button js-btn-twitter">
                 <a className="link-twitter"></a>
               </button>
@@ -361,16 +388,7 @@ function App() {
           </fieldset>
         </form>
       </main>
-      <footer>
-        <div className="footer">
-          <small>Awesome profile-cards @2022</small>
-          <img
-            className="footer__logofoot"
-            src={logoAdalab}
-            alt="Logo Adalab"
-          />
-        </div>
-      </footer>
+      <Footer />
 
       {/*js*/}
       <script type="text/javascript" src="./assets/js/main.js"></script>
