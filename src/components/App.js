@@ -39,25 +39,27 @@ function App() {
   const handlerClickColapsibleDesign = () => {
     triangleDesign === '' ? setTriangleDesign('hidden') : setTriangleDesign('');
     arrowDesign === '' ? setArrowDesign('collapsible') : setArrowDesign('');
-    if (triangleDesign === '') {
-      setTriangleShare('hidden') && setTriangleForm('hidden');
-    }
   };
 
   const handlerClickColapsibleForm = () => {
     triangleForm === '' ? setTriangleForm('hidden') : setTriangleForm('');
     arrowForm === '' ? setArrowForm('collapsible') : setArrowForm('');
-    if (triangleForm === '') {
-      setTriangleShare('hidden') && setTriangleDesign('hidden');
-    }
   };
   const handlerClickColapsibleShare = () => {
     triangleShare === '' ? setTriangleShare('hidden') : setTriangleShare('');
     arrowShare === '' ? setArrowShare('collapsible') : setArrowShare('');
-    if (triangleShare === '') {
-      setTriangleForm('hidden') && setTriangleDesign('hidden');
-    }
   };
+
+  /*
+if (triangleDesign === '') {
+      setTriangleShare('hidden') && setTriangleForm('hidden');
+    }*/
+
+  /*if (triangleForm === '') {
+      setTriangleShare('hidden') && setTriangleDesign('hidden');
+    }*/
+  /*if (triangleShare === '') {
+      setTriangleForm('hidden') && setTriangleDesign('hidden');}*/
 
   const handleReset = (ev) => {
     ev.preventDefault();
@@ -357,9 +359,7 @@ function App() {
             >
               <i className="fa-solid fa-square-share-nodes share-legend__icon"></i>
               <p className="share-legend__text">Comparte</p>
-              <i
-                className={`fa-solid fa-angle-down js-arrow3 ${arrowShare}`}
-              ></i>
+              <i className={`fa-solid fa-angle-up js-arrow3 ${arrowShare}`}></i>
             </div>
             <section className={`section-share-1 js-share ${triangleShare}`}>
               {/*componente crear tarjeta*/}
