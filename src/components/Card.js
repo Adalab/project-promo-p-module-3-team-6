@@ -1,4 +1,8 @@
 import Header from "./Header";
+import Design from "./Design";
+import Stuffed from "./Stuffed";
+import Share from "./Share";
+import CardPreview from "./CardPreview";
 import Footer from "./Footer";
 
 function Card(props) {
