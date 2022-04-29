@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import localStorage from "../services/localStorage";
 import dataApi from "../services/Api";
 import Card from "./Card";
-import Design from "./Design";
+import React from "react";
 
 function App() {
   const [triangleDesign, setTriangleDesign] = useState("");

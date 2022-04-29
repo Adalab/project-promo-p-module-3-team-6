@@ -2,11 +2,8 @@
 
 
 function Design(props) {
-
-
-  
   return (
-   <fieldset className="design-fieldset">
+  <fieldset className="design-fieldset">
             <div
               className="design js-design-container"
               onClick={props.handlerClickColapsibleDesign}
