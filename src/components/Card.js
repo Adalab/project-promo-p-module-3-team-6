@@ -7,6 +7,7 @@ import Footer from "./Footer";
 
 function Card(props) {
   //FUNCIONES/EVENTOS
+
   const handlerClickColapsibleDesign = () => {
     props.triangleDesign === ""
       ? props.setTriangleDesign("hidden")
@@ -15,6 +16,7 @@ function Card(props) {
       ? props.setArrowDesign("collapsible")
       : props.setArrowDesign("");
   };
+ 
 
   const handlerClickColapsibleForm = () => {
     props.triangleForm === ""
@@ -45,33 +47,7 @@ function Card(props) {
   /*if (triangleShare === '') {
           setTriangleForm('hidden') && setTriangleDesign('hidden');}*/
 
-  const handleReset = (ev) => {
-    ev.preventDefault();
-    props.setDataCard({
-      palette: "1",
-      name: "",
-      job: "",
-      email: "",
-      phone: "",
-      linkedin: "",
-      github: "",
-    });
-    //clear();
-    // Función que limpia todo el local storage
-    /*const clear = () => {
-          localStorage.clear();
-        };
-      };*/
-  };
 
-  const handleInput = (ev) => {
-    const inputValue = ev.target.value;
-    const inputChanged = ev.target.name;
-    props.setDataCard({
-      ...props.dataCard,
-      [inputChanged]: inputValue,
-    });
-  };
 
   //manejadora botón crear
   const handleClickCreateCard = (ev) => {
@@ -87,7 +63,7 @@ function Card(props) {
       <main className="align-design">
         <section className="preview-section">
           <div className="preview-section__aliner-div">
-            <button className="reset-button js-reset" onClick={handleReset}>
+            <button className="reset-button js-reset" onClick={props.handleReset}>
               <i className="fa-regular fa-trash-can reset-button__trash"></i>
               <span className="reset-button__text">Reset</span>
             </button>
@@ -151,72 +127,11 @@ function Card(props) {
 
         <form className="form">
           {/*--DESIGN--*/}
-          <fieldset className="design-fieldset">
-            <div
-              className="design js-design-container"
-              onClick={handlerClickColapsibleDesign}
-            >
-              <i className="fa-regular fa-object-ungroup screens"></i>
-              <p className="design__text-design">Diseña</p>
-              <i
-                className={`fa-solid fa-angle-up js-arrow1 ${props.arrowDesign}`}
-              ></i>
-            </div>
-            {/*--COLORS-*/}
-            {/* PALLETE ONE */}
-            <section
-              className={`design-fieldset__design-section js-design js-reset-form  ${props.triangleDesign}`}
-            >
-              <div className="colors__colors-box">
-                <label htmlFor="palette" className="colors">
-                  Colores
-                </label>
-                <input
-                  className="colors__colors-input js_radio1 js_radio"
-                  type="radio"
-                  name="palette"
-                  id="1"
-                  value="1"
-                  checked={props.dataCard.palette === "1"}
-                  onChange={handleInput}
-                />
-                <span className="spectrum-blue1"></span>
-                <span className="spectrum-blue2"></span>
-                <span className="spectrum-blue3"></span>
-              </div>
-              {/*PALETTE TWO*/}
-              <div className="colors__colors-box">
-                <input
-                  className="colors__colors-input js_radio2 js_radio"
-                  type="radio"
-                  name="palette"
-                  id="2"
-                  value="2"
-                  checked={props.dataCard.palette === "2"}
-                  onChange={handleInput}
-                />
-                <span className="spectrum-warm1"></span>
-                <span className="spectrum-warm2"></span>
-                <span className="spectrum-warm3"></span>
-              </div>
-              {/*PALETTE THREE*/}
-              <div className="colors__colors-box">
-                <input
-                  className="colors__colors-input js_radio3 js_radio"
-                  type="radio"
-                  name="palette"
-                  id="3"
-                  value="3"
-                  checked={props.dataCard.palette === "3"}
-                  onChange={handleInput}
-                />
-                <span className="spectrum-mix1"></span>
-                <span className="spectrum-mix2"></span>
-                <span className="spectrum-mix3"></span>
-              </div>
-              <span className="cutting-line1"></span>
-            </section>
-          </fieldset>
+         <Design
+         dataCard={props.dataCard}
+         handlerClickColapsibleDesign = {handlerClickColapsibleDesign}
+         handleInput = {props.handleInput}/>
+        
 
           {/*STUFFED*/}
           <fieldset className="stuffed-fieldset">
@@ -245,7 +160,7 @@ function Card(props) {
                 placeholder="Ej: Pepita Pérez"
                 required
                 value={props.dataCard.name}
-                onChange={handleInput}
+                onChange={props.handleInput}
               />
               {/*PROFESSION*/}
               <label className="stuffed-titles" htmlFor="job">
@@ -259,7 +174,7 @@ function Card(props) {
                 placeholder="Ej: Front-end developer"
                 required
                 value={props.dataCard.job}
-                onChange={handleInput}
+                onChange={props.handleInput}
               />
               {/*ADD IMAGE*/}
               <label className="stuffed-titles" htmlFor="image">
@@ -292,7 +207,7 @@ function Card(props) {
                 placeholder="Ej: pepita.perez@gmail.com"
                 required
                 value={props.dataCard.email}
-                onChange={handleInput}
+                onChange={props.handleInput}
               />
               {/*PHONE*/}
               <label className="stuffed-titles" htmlFor="telef">
@@ -306,7 +221,7 @@ function Card(props) {
                 placeholder="Ej: 000-000-000"
                 required
                 value={props.dataCard.phone}
-                onChange={handleInput}
+                onChange={props.handleInput}
               />
               {/*SOCIAL MEDIA*/}
               <label className="stuffed-titles" htmlFor="linkedin">
@@ -319,7 +234,7 @@ function Card(props) {
                 id="linkedin"
                 placeholder="url completa de tu perfil"
                 value={props.dataCard.linkedin}
-                onChange={handleInput}
+                onChange={props.handleInput}
               />
               <label className="stuffed-titles" htmlFor="github">
                 GitHub
@@ -331,7 +246,7 @@ function Card(props) {
                 id="github"
                 placeholder="url completa de tu perfil"
                 value={props.dataCard.github}
-                onChange={handleInput}
+                onChange={props.handleInput}
               />
               <span className="cutting-line2"></span>
             </div>

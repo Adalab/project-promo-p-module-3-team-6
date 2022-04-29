@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import localStorage from "../services/localStorage";
 import dataApi from "../services/Api";
 import Card from "./Card";
+import Design from "./Design";
 
 function App() {
   const [triangleDesign, setTriangleDesign] = useState("");
@@ -33,6 +34,34 @@ function App() {
     }
   }, []);
 
+  const handleReset = (ev) => {
+    ev.preventDefault();
+    setDataCard({
+      palette: "1",
+      name: "",
+      job: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
+    });
+    //clear();
+    // Función que limpia todo el local storage
+    /*const clear = () => {
+          localStorage.clear();
+        };
+      };*/
+  };
+
+  const handleInput = (ev) => {
+    const inputValue = ev.target.value;
+    const inputChanged = ev.target.name;
+    setDataCard({
+      ...dataCard,
+      [inputChanged]: inputValue,
+    });
+  };
+
   //HTML
   return (
     <Card
@@ -49,7 +78,8 @@ function App() {
       arrowShare={arrowShare}
       setArrowShare={setArrowShare}
       dataCard={dataCard}
-      setDataCard={setDataCard}
+      handleReset={handleReset}
+      handleInput={handleInput}
       apiData={apiData}
       setApiData={setApiData}
       cards={cards}
