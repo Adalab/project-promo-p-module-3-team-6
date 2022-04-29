@@ -1,6 +1,3 @@
-
-
-
 function Design(props) {
   return (
   <fieldset className="design-fieldset">
