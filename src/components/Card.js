@@ -9,12 +9,18 @@ function Card(props) {
   //FUNCIONES/EVENTOS
 
   const handlerClickColapsibleDesign = () => {
+    
     props.triangleDesign === ""
       ? props.setTriangleDesign("hidden")
       : props.setTriangleDesign("");
     props.arrowDesign === ""
       ? props.setArrowDesign("collapsible")
       : props.setArrowDesign("");
+
+      console.log('triangulo')
+    console.log(props.setTriangleDesign)
+    console.log('arrow');
+    console.log(props.setArrowDesign)
   };
  
 
