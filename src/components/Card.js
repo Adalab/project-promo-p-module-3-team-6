@@ -1,39 +1,38 @@
-import Header from "./Header";
-import Design from "./Design";
-import Stuffed from "./Stuffed";
-import Share from "./Share";
-import CardPreview from "./CardPreview";
-import Footer from "./Footer";
+import Header from './Header';
+import Design from './Design';
+import Stuffed from './Stuffed';
+import Share from './Share';
+import CardPreview from './CardPreview';
+import Footer from './Footer';
 
 function Card(props) {
   //FUNCIONES/EVENTOS
 
   const handlerClickColapsibleDesign = () => {
-    props.triangleDesign === ""
-      ? props.setTriangleDesign("hidden")
-      : props.setTriangleDesign("");
-    props.arrowDesign === ""
-      ? props.setArrowDesign("collapsible")
-      : props.setArrowDesign("");
+    props.triangleDesign === ''
+      ? props.setTriangleDesign('hidden')
+      : props.setTriangleDesign('');
+    props.arrowDesign === ''
+      ? props.setArrowDesign('collapsible')
+      : props.setArrowDesign('');
   };
- 
 
   const handlerClickColapsibleForm = () => {
-    props.triangleForm === ""
-      ? props.setTriangleForm("hidden")
-      : props.setTriangleForm("");
-    props.arrowForm === ""
-      ? props.setArrowForm("collapsible")
-      : props.setArrowForm("");
+    props.triangleForm === ''
+      ? props.setTriangleForm('hidden')
+      : props.setTriangleForm('');
+    props.arrowForm === ''
+      ? props.setArrowForm('collapsible')
+      : props.setArrowForm('');
   };
 
   const handlerClickColapsibleShare = () => {
-    props.triangleShare === ""
-      ? props.setTriangleShare("hidden")
-      : props.setTriangleShare("");
-    props.arrowShare === ""
-      ? props.setArrowShare("collapsible")
-      : props.setArrowShare("");
+    props.triangleShare === ''
+      ? props.setTriangleShare('hidden')
+      : props.setTriangleShare('');
+    props.arrowShare === ''
+      ? props.setArrowShare('collapsible')
+      : props.setArrowShare('');
   };
 
   /*
@@ -46,8 +45,6 @@ function Card(props) {
         }*/
   /*if (triangleShare === '') {
           setTriangleForm('hidden') && setTriangleDesign('hidden');}*/
-
-
 
   //manejadora botón crear
   const handleClickCreateCard = (ev) => {
@@ -63,27 +60,27 @@ function Card(props) {
       <main className="align-design">
         <section className="preview-section">
           <div className="preview-section__aliner-div">
-            <button className="reset-button js-reset" onClick={props.handleReset}>
+            <button className="reset-button" onClick={props.handleReset}>
               <i className="fa-regular fa-trash-can reset-button__trash"></i>
               <span className="reset-button__text">Reset</span>
             </button>
-            <article className="preview-card js_preview">
+            <article className="preview-card">
               <div className="preview-card__div rectangle">
-                <h3 className="preview-card__div--name name js-name js_reset-title">
-                  {props.dataCard.name || "Nombre Apellido"}
+                <h3 className="preview-card__div--name name">
+                  {props.dataCard.name || 'Nombre Apellido'}
                 </h3>
-                <p className="preview-card__div--profession profession js-profession js_reset-subtitle">
-                  {props.dataCard.job || "Front-end developer"}
+                <p className="preview-card__div--profession profession">
+                  {props.dataCard.job || 'Front-end developer'}
                 </p>
               </div>
-              <div className="preview-card__image js__profile-image"></div>
+              <div className="preview-card__image"></div>
               <nav>
                 <ul className="card-list">
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={`tel:${props.dataCard.phone || ""}`}
-                      className="card-list__item--link icon-palette js-phone js_reset-telf"
+                      href={`tel:${props.dataCard.phone || ''}`}
+                      className="card-list__item--link icon-palette"
                       title="Teléfono"
                     >
                       <i className="fa-solid fa-mobile-screen-button"></i>
@@ -92,8 +89,8 @@ function Card(props) {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={`mailto:${props.dataCard.email || ""}`}
-                      className="card-list__item--link icon-palette js-email js_reset-send"
+                      href={`mailto:${props.dataCard.email || ''}`}
+                      className="card-list__item--link icon-palette"
                       title="Correo electrónico"
                     >
                       <i className="fa-regular fa-envelope"></i>
@@ -102,8 +99,8 @@ function Card(props) {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={props.dataCard.linkedin || ""}
-                      className="card-list__item--link icon-palette js-linkedin js_reset-lknd"
+                      href={props.dataCard.linkedin || ''}
+                      className="card-list__item--link icon-palette"
                       title="Perfil de Linkedin"
                     >
                       <i className="fa-brands fa-linkedin-in"></i>
@@ -112,8 +109,8 @@ function Card(props) {
                   <li className="card-list__item border">
                     <a
                       target="blank"
-                      href={props.dataCard.github || ""}
-                      className="card-list__item--link icon-palette js-git js_reset-github"
+                      href={props.dataCard.github || ''}
+                      className="card-list__item--link icon-palette"
                       title="Perfil de GitHub"
                     >
                       <i className="fa-brands fa-github-alt"></i>
@@ -127,33 +124,26 @@ function Card(props) {
 
         <form className="form">
           {/*--DESIGN--*/}
-         <Design
-         dataCard={props.dataCard}
-         handlerClickColapsibleDesign = {handlerClickColapsibleDesign}
-         handleInput = {props.handleInput}/>
-        
+          <Design
+            dataCard={props.dataCard}
+            handlerClickColapsibleDesign={handlerClickColapsibleDesign}
+            handleInput={props.handleInput}
+          />
 
           {/*STUFFED*/}
           <fieldset className="stuffed-fieldset">
-            <div
-              className="stuffed js-stuffed-container"
-              onClick={handlerClickColapsibleForm}
-            >
+            <div className="stuffed" onClick={handlerClickColapsibleForm}>
               <i className="fa-regular fa-keyboard keyboard"></i>
               <p className="stuffed__text-stuffed">Rellena</p>
-              <i
-                className={`fa-solid fa-angle-up js-arrow2 ${props.arrowForm}`}
-              ></i>
+              <i className={`fa-solid fa-angle-up ${props.arrowForm}`}></i>
             </div>
             {/*NAME*/}
-            <div
-              className={`stuffed__stuffed-form js-stuffed js-stuffed-form js-reset-form ${props.triangleForm}`}
-            >
+            <div className={`stuffed__stuffed-form ${props.triangleForm}`}>
               <label className="stuffed-titles" htmlFor="name">
                 Nombre completo
               </label>
               <input
-                className="stuffed-titles__stuffed-texts js-forname js_reset-name"
+                className="stuffed-titles__stuffed-texts"
                 id="name"
                 type="text"
                 name="name"
@@ -167,7 +157,7 @@ function Card(props) {
                 Puesto
               </label>
               <input
-                className="stuffed-titles__stuffed-texts js-forjob js_reset-job"
+                className="stuffed-titles__stuffed-texts"
                 id="job"
                 type="text"
                 name="job"
@@ -181,26 +171,18 @@ function Card(props) {
                 Imagen de perfil
               </label>
               <div className="false-stuffed">
-                <label
-                  className="false-stuffed__false-button js__profile-trigger"
-                  htmlFor="image"
-                >
+                <label className="false-stuffed__false-button" htmlFor="image">
                   Añadir imagen
                 </label>
-                <input
-                  className="hidden js__profile-upload-btn js-forimage"
-                  type="file"
-                  id="image"
-                  name="image"
-                />
-                <div className="false-stuffed__false-square js__profile-preview"></div>
+                <input className="hidden" type="file" id="image" name="image" />
+                <div className="false-stuffed__false-square"></div>
               </div>
               {/*EMAIL*/}
               <label className="stuffed-titles" htmlFor="email">
                 Email
               </label>
               <input
-                className="stuffed-titles__stuffed-texts js-formail js_reset-mail"
+                className="stuffed-titles__stuffed-texts"
                 id="email"
                 type="email"
                 name="email"
@@ -214,7 +196,7 @@ function Card(props) {
                 Teléfono
               </label>
               <input
-                className="stuffed-titles__stuffed-texts js-forphone js_reset-phone"
+                className="stuffed-titles__stuffed-texts"
                 id="phone"
                 type="tel"
                 name="phone"
@@ -228,7 +210,7 @@ function Card(props) {
                 Linkedin
               </label>
               <input
-                className="stuffed-titles__stuffed-texts js-forlkdn js_reset-linkedin"
+                className="stuffed-titles__stuffed-texts"
                 type="text"
                 name="linkedin"
                 id="linkedin"
@@ -240,7 +222,7 @@ function Card(props) {
                 GitHub
               </label>
               <input
-                className="stuffed-titles__stuffed-texts js-forgit js_reset-git"
+                className="stuffed-titles__stuffed-texts"
                 type="text"
                 name="github"
                 id="github"
@@ -254,38 +236,28 @@ function Card(props) {
 
           {/*SHARE AND CARD*/}
           <fieldset className="design-share">
-            <div
-              className="share-legend js-share-container"
-              onClick={handlerClickColapsibleShare}
-            >
+            <div className="share-legend" onClick={handlerClickColapsibleShare}>
               <i className="fa-solid fa-square-share-nodes share-legend__icon"></i>
               <p className="share-legend__text">Comparte</p>
-              <i
-                className={`fa-solid fa-angle-up js-arrow3 ${props.arrowShare}`}
-              ></i>
+              <i className={`fa-solid fa-angle-up ${props.arrowShare}`}></i>
             </div>
-            <section
-              className={`section-share-1 js-share ${props.triangleShare}`}
-            >
+            <section className={`section-share-1 ${props.triangleShare}`}>
               {/*componente crear tarjeta*/}
-              <button
-                className="card-button js-button-share"
-                onClick={handleClickCreateCard}
-              >
+              <button className="card-button" onClick={handleClickCreateCard}>
                 <i className="fa-solid fa-address-card card-button__icon"></i>
                 <span className="card-button__text">Crear tarjeta</span>
               </button>
 
               <span className="section-share__line"></span>
             </section>
-            <section className="share-newcard card-hidden js-section-link">
-              <h3 className="share-newcard__text js-false">
+            <section className="share-newcard card-hidden">
+              <h3 className="share-newcard__text">
                 La tarjeta ha sido creada:
               </h3>
-              <a target="blank" className="share-newcard__link js-true" href="">
-                {props.apiData.cardUrl || "url"}
+              <a target="blank" className="share-newcard__link" href="">
+                {props.apiData.cardUrl || 'url'}
               </a>
-              <button className="share-newcard__button js-btn-twitter">
+              <button className="share-newcard__button">
                 <a className="link-twitter"></a>
               </button>
               <span className="section-share__line"></span>
