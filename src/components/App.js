@@ -1,4 +1,6 @@
 import '../styles/main.scss';
+import { Route, Routes } from 'react-router-dom';
+
 //import logoAdalab from '../images/logo-adalab.png';
 //import logoAwesome from '../images/logo-awesome-profile-cards.svg';
 import { useEffect, useState } from 'react';
@@ -6,7 +8,7 @@ import localStorage from '../services/localStorage';
 import dataApi from '../services/Api';
 import Card from './Card';
 import Design from './Design';
-
+import Landing from './Landing';
 function App() {
   const [triangleDesign, setTriangleDesign] = useState('');
   const [triangleForm, setTriangleForm] = useState('');
@@ -64,27 +66,37 @@ function App() {
 
   //HTML
   return (
-    <Card
-      triangleDesign={triangleDesign}
-      setTriangleDesign={setTriangleDesign}
-      triangleForm={triangleForm}
-      setTriangleForm={setTriangleForm}
-      triangleShare={triangleShare}
-      setTriangleShare={setTriangleShare}
-      arrowDesign={arrowDesign}
-      setArrowDesign={setArrowDesign}
-      arrowForm={arrowForm}
-      setArrowForm={setArrowForm}
-      arrowShare={arrowShare}
-      setArrowShare={setArrowShare}
-      dataCard={dataCard}
-      handleReset={handleReset}
-      handleInput={handleInput}
-      apiData={apiData}
-      setApiData={setApiData}
-      cards={cards}
-      setCards={setCards}
-    />
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route
+          path="/card"
+          element={
+            <Card
+              triangleDesign={triangleDesign}
+              setTriangleDesign={setTriangleDesign}
+              triangleForm={triangleForm}
+              setTriangleForm={setTriangleForm}
+              triangleShare={triangleShare}
+              setTriangleShare={setTriangleShare}
+              arrowDesign={arrowDesign}
+              setArrowDesign={setArrowDesign}
+              arrowForm={arrowForm}
+              setArrowForm={setArrowForm}
+              arrowShare={arrowShare}
+              setArrowShare={setArrowShare}
+              dataCard={dataCard}
+              handleReset={handleReset}
+              handleInput={handleInput}
+              apiData={apiData}
+              setApiData={setApiData}
+              cards={cards}
+              setCards={setCards}
+            />
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
