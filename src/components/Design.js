@@ -13,7 +13,7 @@ function Design(props) {
       >
         <div className="colors__colors-box">
           <label htmlFor="palette" className="colors">
-            Colores
+            COLORES
           </label>
           <input
             className="colors__colors-input"
