@@ -1,7 +1,7 @@
-/*import "../styles/main.scss";
+import "../styles/main.scss";
 import logoAdalab from "../images/logo-adalab.png";
 import logoAwesome from "../images/logo-awesome-profile-cards.svg";
-import { useState } from "react";
+import {Link} from 'react-router-dom'
 
 function landing() {
     const handleClickStart = () => {
@@ -12,8 +12,8 @@ function landing() {
 <div className="align-landing">
       <main className="main-landing">
         <article className="container1">
-      { /* container1 */
-/* <img
+       {/* container1 */}
+ <img
             className="container1__logoMain"
             src={logoAwesome}
             alt="Logo de la aplicación"
@@ -24,8 +24,8 @@ function landing() {
           </p>
         </article>
 
-        {/*container2*/
-/* <section className="section">
+        {/*container2*/}
+  <section className="section">
           <ul className="container2">
             <li className="container2__items">
               <i className="fa-regular fa-object-ungroup container2__icon"></i>
@@ -44,7 +44,7 @@ function landing() {
           <div>
             <button className="button" 
             onClick={handleClickStart}>
-              <a className="button__link" href="./design.html">Comenzar</a>
+              <Link className="button__link" to="/Card" >Comenzar</Link>
             </button>
           </div>
         </section>
@@ -66,4 +66,4 @@ function landing() {
         );
 }
 
-export default landing;*/
+export default landing;

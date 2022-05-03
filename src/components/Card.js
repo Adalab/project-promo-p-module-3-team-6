@@ -54,29 +54,33 @@ function Card(props) {
           setTriangleForm('hidden') && setTriangleDesign('hidden');}*/
 
 
+//manejadora botón crear
+const handleClickCreateCard = (ev) => {
+  ev.preventDefault();
+  props.dataApi(props.dataCard).then((info) => {
+    props.setApiData(info);
+  });
+};
 
-  //manejadora botón crear
-  const handleClickCreateCard = (ev) => {
-    ev.preventDefault();
-    props.dataApi(props.dataCard).then((info) => {
-      props.setApiData(info);
-    });
-  };
+
+
+
 
   return (
     <div>
       <Header />
       <main className="align-design">
-       <CardPreview
-       dataCard={props.dataCard} 
-       handleReset={props.handleReset}/>
+        <CardPreview
+        dataCard={props.dataCard} 
+        handleReset={props.handleReset}/>
 
         <form className="form">
           {/*--DESIGN--*/}
             <Design
             dataCard={props.dataCard}
             handlerClickColapsibleDesign = {handlerClickColapsibleDesign}
-            handleInput = {props.handleInput}/>
+            handleInput = {props.handleInput}
+          />
         
 
           {/*STUFFED*/}
