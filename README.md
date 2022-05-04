@@ -41,7 +41,7 @@ Seguimos teniendo la misma interfaz ;) pero hemos mejorado mucho el código al m
 
 ### Autores
 
-- Lorena: http://linkedin.com/in/lorena-guartazaca-b55a541b4
+- Lorena: 
 - Noelia: https://www.linkedin.com/in/noeliaromerogarcia/
 - Ana: https://www.linkedin.com/in/ana-marcos-est%C3%A9vez-7ab986232/
 - Lucía: https://www.linkedin.com/in/luc%C3%ADa-acu%C3%B1a-ruadas-9b3888143/
