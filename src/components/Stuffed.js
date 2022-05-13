@@ -56,6 +56,7 @@ function Stuffed(props) {
             type="file"
             id="image"
             name="image"
+            //onChange={handleAddImage}
           />
           <div className="false-stuffed__false-square js__profile-preview"></div>
         </div>
