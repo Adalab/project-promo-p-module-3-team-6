@@ -1,3 +1,5 @@
+import GetAvatar from "./GetAvatar";
+
 function Stuffed(props) {
   return (
     <fieldset className="stuffed-fieldset">
@@ -40,25 +42,11 @@ function Stuffed(props) {
           value={props.dataCard.job}
           onChange={props.handleInput}
         />
+
         {/*ADD IMAGE*/}
-        <label className="stuffed-titles" htmlFor="image">
-          Imagen de perfil
-        </label>
-        <div className="false-stuffed">
-          <label
-            className="false-stuffed__false-button js__profile-trigger"
-            htmlFor="image"
-          >
-            Añadir imagen
-          </label>
-          <input
-            className="hidden js__profile-upload-btn js-forimage"
-            type="file"
-            id="image"
-            name="image"
-          />
-          <div className="false-stuffed__false-square js__profile-preview"></div>
-        </div>
+
+        <GetAvatar updateAvatar={props.updateAvatar} avatar={props.avatar} />
+
         {/*EMAIL*/}
         <label className="stuffed-titles" htmlFor="email">
           Email

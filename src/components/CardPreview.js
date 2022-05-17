@@ -1,3 +1,5 @@
+import Profile from "./Profile";
+
 function CardPreview(props) {
   return (
     <section className="preview-section">
@@ -9,19 +11,21 @@ function CardPreview(props) {
         <article className="preview-card js_preview">
           <div className="preview-card__div rectangle">
             <h3 className="preview-card__div--name name js-name js_reset-title">
-              {props.dataCard.name || 'Nombre Apellido'}
+              {props.dataCard.name || "Nombre Apellido"}
             </h3>
             <p className="preview-card__div--profession profession js-profession js_reset-subtitle">
-              {props.dataCard.job || 'Front-end developer'}
+              {props.dataCard.job || "Front-end developer"}
             </p>
           </div>
-          <div className="preview-card__image js__profile-image"></div>
+          <div className="preview-card__image js__profile-image">
+            <Profile avatar={props.avatar} />
+          </div>
           <nav>
             <ul className="card-list">
               <li className="card-list__item border">
                 <a
                   target="blank"
-                  href={`tel:${props.dataCard.phone || ''}`}
+                  href={`tel:${props.dataCard.phone || ""}`}
                   className="card-list__item--link icon-palette js-phone js_reset-telf"
                   title="Teléfono"
                 >
@@ -31,7 +35,7 @@ function CardPreview(props) {
               <li className="card-list__item border">
                 <a
                   target="blank"
-                  href={`mailto:${props.dataCard.email || ''}`}
+                  href={`mailto:${props.dataCard.email || ""}`}
                   className="card-list__item--link icon-palette js-email js_reset-send"
                   title="Correo electrónico"
                 >
@@ -41,7 +45,7 @@ function CardPreview(props) {
               <li className="card-list__item border">
                 <a
                   target="blank"
-                  href={props.dataCard.linkedin || ''}
+                  href={props.dataCard.linkedin || ""}
                   className="card-list__item--link icon-palette js-linkedin js_reset-lknd"
                   title="Perfil de Linkedin"
                 >
@@ -51,7 +55,7 @@ function CardPreview(props) {
               <li className="card-list__item border">
                 <a
                   target="blank"
-                  href={props.dataCard.github || ''}
+                  href={props.dataCard.github || ""}
                   className="card-list__item--link icon-palette js-git js_reset-github"
                   title="Perfil de GitHub"
                 >

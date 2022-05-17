@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import defaultAvatar from '../images/defaultAvatar.png';
-import '../styles/Profile.css';
+import React from "react";
+import PropTypes from "prop-types";
+import defaultAvatar from "../images/profile-image.jpg";
 
 function Profile(props) {
-  const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
+  const avatar = props.avatar === "" ? defaultAvatar : props.avatar;
   return (
-    <div className="profile">
+    <div className="false-stuffed">
       <div
-        className="profile__avatar"
+        className="preview-card__image js__profile-image"
         style={{ backgroundImage: `url(${avatar})` }}
       ></div>
     </div>
