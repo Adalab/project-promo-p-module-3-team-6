@@ -1,38 +1,38 @@
-import Header from './Header';
-import Design from './Design';
-import Stuffed from './Stuffed';
-import Share from './Share';
-import CardPreview from './CardPreview';
-import Footer from './Footer';
+import Header from "./Header";
+import Design from "./Design";
+import Stuffed from "./Stuffed";
+import Share from "./Share";
+import CardPreview from "./CardPreview";
+import Footer from "./Footer";
 
 function Card(props) {
   //FUNCIONES/EVENTOS
 
   const handlerClickColapsibleDesign = () => {
-    props.triangleDesign === ''
-      ? props.setTriangleDesign('hidden')
-      : props.setTriangleDesign('');
-    props.arrowDesign === ''
-      ? props.setArrowDesign('collapsible')
-      : props.setArrowDesign('');
+    props.triangleDesign === ""
+      ? props.setTriangleDesign("hidden")
+      : props.setTriangleDesign("");
+    props.arrowDesign === ""
+      ? props.setArrowDesign("collapsible")
+      : props.setArrowDesign("");
   };
 
   const handlerClickColapsibleForm = () => {
-    props.triangleForm === ''
-      ? props.setTriangleForm('hidden')
-      : props.setTriangleForm('');
-    props.arrowForm === ''
-      ? props.setArrowForm('collapsible')
-      : props.setArrowForm('');
+    props.triangleForm === ""
+      ? props.setTriangleForm("hidden")
+      : props.setTriangleForm("");
+    props.arrowForm === ""
+      ? props.setArrowForm("collapsible")
+      : props.setArrowForm("");
   };
 
   const handlerClickColapsibleShare = () => {
-    props.triangleShare === ''
-      ? props.setTriangleShare('hidden')
-      : props.setTriangleShare('');
-    props.arrowShare === ''
-      ? props.setArrowShare('collapsible')
-      : props.setArrowShare('');
+    props.triangleShare === ""
+      ? props.setTriangleShare("hidden")
+      : props.setTriangleShare("");
+    props.arrowShare === ""
+      ? props.setArrowShare("collapsible")
+      : props.setArrowShare("");
   };
 
   /*

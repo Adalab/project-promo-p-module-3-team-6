@@ -1,7 +1,16 @@
+import dataApi from "../services/Api";
+
 function Share(props) {
   const handleClick = (ev) => {
     ev.preventDefault();
-    props.handleClickCreateCard();
+    console.log("paso por aqui");
+    dataApi(props.dataCard).then((response) => {
+      if (response.success) {
+        // PIntar la response.cardURL que devuelve el servidor
+      } else {
+        // Poner un mensajito de error.
+      }
+    });
   };
   return (
     <fieldset className="design-share">
