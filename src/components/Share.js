@@ -1,4 +1,8 @@
 function Share(props) {
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    props.handleClickCreateCard();
+  };
   return (
     <fieldset className="design-share">
       <div
@@ -11,10 +15,7 @@ function Share(props) {
       </div>
       <section className={`section-share-1 js-share ${props.triangleShare}`}>
         {/*componente crear tarjeta*/}
-        <button
-          className="card-button js-button-share"
-          onClick={props.handleClickCreateCard}
-        >
+        <button className="card-button js-button-share" onClick={handleClick}>
           <i className="fa-solid fa-address-card card-button__icon"></i>
           <span className="card-button__text">Crear tarjeta</span>
         </button>
